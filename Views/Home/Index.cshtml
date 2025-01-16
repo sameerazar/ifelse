@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> signInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @{
+        string email = User.Identity.Name; //  "admin@example.com"
+        string userName = email.Contains("@") ? email.Split('@')[0] : email;
+      
+    }@userName!
+    
+   @*  @if(User.Identity.Name.Substring(0, 5).Equals ("admin", StringComparison.OrdinalIgnoreCase))
+    {
+        @userName.ToUpper()
+    } *@
+    
+    
+   
+</div>

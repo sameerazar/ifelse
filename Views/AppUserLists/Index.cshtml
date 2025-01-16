@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CustomIdentity.Models.AppUserList>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> signInManager
+
+@{
+    ViewData["Title"] = "Manage Properties";
+}
+
+<h1>Manage Properties</h1>
+
+<div Class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-6 d-card p-5">
+        <table class="table">
+            <p>
+                <a asp-action="Create" class="btn btn-primary btn-sm  align-items-center justify-content-Right">Create New</a>
+            </p>
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                { 
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        @* @if (User.Identity.IsAuthenticated)
+                        { *@
+
+                        @if (User.Identity.Name.Substring(0, 5).Equals("admin", StringComparison.OrdinalIgnoreCase))
+
+                            {
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-primary btn-sm">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-info btn-sm">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete?')">Delete</a>
+                                </td>
+                            }
+                        @* } *@
+
+
+                    </tr>
+                
+                }
+                
+          
+          
+
+    </tbody>
+  </table>
+        
+</div>
+</div>
