@@ -6,14 +6,16 @@
     ViewData["Title"] = "Manage Properties";
 }
 
-<h1>Manage Properties</h1>
-
+<h2>Manage Properties</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-sm" style="margin-top: 20px; margin-left: 275px;">Create New</a>
+</p>
 <div Class="row d-flex align-items-center justify-content-center">
-    <div class="col-md-6 d-card p-5">
+    
+    <div class="col-md-7 d-card p-6" style="background: white; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+      
         <table class="table">
-            <p>
-                <a asp-action="Create" class="btn btn-primary btn-sm  align-items-center justify-content-Right">Create New</a>
-            </p>
+           
             <thead>
                 <tr>
                     <th>
@@ -26,7 +28,8 @@
                         @Html.DisplayNameFor(model => model.Email)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Address)
+                        @Html.DisplayNameFor(model => model.Address) 
+                      
                     </th>
                     <th></th>
                 </tr>
@@ -45,7 +48,8 @@
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Address)
+                            @Html.DisplayFor(modelItem => item.Address) 
+                           
                         </td>
                         @* @if (User.Identity.IsAuthenticated)
                         { *@

@@ -12,14 +12,15 @@ namespace CustomIdentity.Models
 
         [DataType(DataType.PhoneNumber)]
         [Required]
-        [RegularExpression(@"^\d{14}$", ErrorMessage = "Mobile number must be exactly 13 digits.")]
-        [StringLength(14, MinimumLength = 14, ErrorMessage = "Mobile number must be exactly 13 digits.")]
+        [RegularExpression(@"^\+?\d{12}$", ErrorMessage = "Mobile number must be exactly 12 digits.")]
+        [StringLength(13, MinimumLength = 10, ErrorMessage = "Mobile number must be exactly 12 digits.")]
         public string Mobile { get; set; }
 
         [Required]
         [EmailAddress]
         public string Email { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string Address { get; set; }
 
        

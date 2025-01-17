@@ -16,8 +16,8 @@ namespace CustomIdentity.ViewModels
 
         [DataType(DataType.PhoneNumber)]
         [Required]
-        [RegularExpression(@"^\d{14}$", ErrorMessage = "Mobile number must be 13  digits.")]
-        [StringLength(14, MinimumLength = 14, ErrorMessage = "Mobile number must be exactly 13 digits.")]
+        [RegularExpression(@"^\+?\d{12}$", ErrorMessage = "Mobile number must be 13  digits.")]
+        [StringLength(13, MinimumLength = 10, ErrorMessage = "Mobile number must be exactly 13 digits.")]
         public string? PhoneNumber { get; set; } 
 
         [Required ]
