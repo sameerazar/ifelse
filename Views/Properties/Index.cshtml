@@ -1,0 +1,123 @@
+﻿@model IEnumerable<CustomIdentity.Models.Property>
+
+@{
+    ViewData["Title"] = "Manage Property";
+}
+
+    
+
+<div Class="row d-flex align-items-center justify-content-center">
+    <h2  <h4 style="color: darkblue;margin-top: 20px; margin-left: 135px;">Manage Properties</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-primary btn-sm" style="margin-top: 20px; margin-left: 115px;">Create New Properties</a>
+    </p>
+    </hr>
+
+
+    <div class="col-md-10 d-card p-6" style="background: white; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+
+        
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Property_Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Property_Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Location)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Size_SqFt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Number_of_Bedrooms)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Number_of_Bathrooms)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Property_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Property_Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Size_SqFt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number_of_Bedrooms)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number_of_Bathrooms)
+                        </td>
+                        @if (User.Identity.Name.Substring(0, 5).Equals("admin", StringComparison.OrdinalIgnoreCase))
+
+                        {
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Property_ID" class="btn btn-primary btn-sm">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Property_ID" class="btn btn-info btn-sm">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Property_ID" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete?')">Delete</a>
+                            </td>
+                        }
+                        else
+                        {
+                             <td>
+                            <a asp-action="Details" asp-route-id="@item.Property_ID" class="btn btn-info btn-sm">Details</a>
+                            </td>
+ 
+                        }
+               
+        </tr>
+}
+    </tbody>
+</table>
+        <div class="row">
+
+
+            <div class="col-md-6" style="margin-top: 15px; margin-left: 795px;">
+                <form class="d-flex" asp-action="Index" asp-controller="Properties">
+                    <!-- Input field -->
+                    <input name="searchString"
+                           class="form-control me-1"
+                           type="search"
+                           placeholder="Search"
+                           aria-label="Search"
+                           style="width: 200px; height: 30px; font-size: 14px;">
+
+                    <!-- Submit Button -->
+                    <button class="btn btn-primary btn-sm align-items-center justify-content-center"
+                            type="submit"
+                            style=" color: white; border: none; height: 33px; padding: 5px 10px;">
+                        
+                         Search 
+                    </button>
+                </form>
+            </div>
+            @* <div class="col-md-6">
+            <a asp-action="Index" class="text-dark"> Back to full list</a>
+        </div> *@
+
+        </div>
+    </div>
+
+</div>

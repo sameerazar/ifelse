@@ -12,6 +12,7 @@ namespace CustomIdentity.Data
         {
             
         }
-       public DbSet<AppUserList> AppUserLists { get; set; }
+      public DbSet<AppUserList> AppUserLists { get; set; }
+       public DbSet<Property> Properties { get; set; }  
     }
 }

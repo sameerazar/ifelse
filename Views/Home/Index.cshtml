@@ -5,14 +5,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="text-center" style="color: darkblue;font-weight: bold;font-style: italic;font-size: 38px">
+    <h3 class="display-4">Welcome Home </h3>
+    <h4 class="display-4">ifelse Real Estate and Properties </h4>
 
     @{
         string email = User.Identity.Name; //  "admin@example.com"
         string userName = email.Contains("@") ? email.Split('@')[0] : email;
       
-    }@userName!
+    }
+    @* @userName! *@
     
    @*  @if(User.Identity.Name.Substring(0, 5).Equals ("admin", StringComparison.OrdinalIgnoreCase))
     {
